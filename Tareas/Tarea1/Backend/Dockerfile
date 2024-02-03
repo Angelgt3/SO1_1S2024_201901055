@@ -1,6 +1,6 @@
 FROM golang:alpine as build
 
-WORKDIR /app
+WORKDIR /backend
 
 COPY . .
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const DatosComponent = () => {
   const [datos, setDatos] = useState(null);
+  const [mostrarDatos, setMostrarDatos] = useState(false);
 
   useEffect(() => {
     // Simulando una solicitud GET (reemplázalo con tu lógica de solicitud real)
@@ -11,10 +12,15 @@ const DatosComponent = () => {
       .catch(error => console.error('Error al obtener datos:', error));
   }, []);
 
+  const handleMostrarDatos = () => {
+    setMostrarDatos(true);
+  };
+
   return (
     <div>
       <h2>Datos</h2>
-      {datos ? (
+      <button onClick={handleMostrarDatos}>Mostrar Datos</button>
+      {mostrarDatos && datos ? (
         <ul>
           <li>
             <strong>Nombres:</strong> {datos.nombres}
@@ -30,7 +36,7 @@ const DatosComponent = () => {
           </li>
         </ul>
       ) : (
-        <p>Cargando datos...</p>
+        <p>{mostrarDatos ? 'Cargando datos...' : ''}</p>
       )}
     </div>
   );
