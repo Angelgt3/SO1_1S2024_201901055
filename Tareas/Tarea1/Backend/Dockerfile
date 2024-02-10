@@ -1,11 +1,13 @@
-FROM golang:alpine as build
+FROM node:latest
 
 WORKDIR /backend
 
+COPY package*.json ./
+
+RUN npm install
+
 COPY . .
 
-RUN go build -o main .
+EXPOSE 4000
 
-EXPOSE 3000
-
-CMD ["./main"]
+CMD ["npm", "start"]

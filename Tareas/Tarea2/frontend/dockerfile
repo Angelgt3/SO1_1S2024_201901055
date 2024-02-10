@@ -6,8 +6,10 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm install semantic-ui-react semantic-ui-css
+
 COPY . .
 
-EXPOSE 4000
+EXPOSE 3000
 
 CMD ["npm", "start"]

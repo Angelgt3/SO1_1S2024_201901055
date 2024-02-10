@@ -1,0 +1,3 @@
+use so1_t2_db
+db.createCollection("imagen");
+
